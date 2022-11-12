@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import {walletButton, getWalletConnect, mintNFT} from "./WalletButton";
 import {BrowserRouter as Router,Switch,Route,Link,useRouteMatch,useParams} from "react-router-dom";
-import {Mynft} from "./My_Nfts"
 
 const Minter = (props) => {
   const [walletAddress, setWallet] = useState("");
@@ -47,11 +46,7 @@ const Minter = (props) => {
     const {status} = await mintNFT(url,to,name,description);
     setStatus(status);
   };
-
-  const myNft = async () => {
-    await Mynft();
-  }
-
+  
   return (
     <div className="Minter">
       <button id="walletButton" onClick={connectWalletPressed}>
@@ -64,7 +59,6 @@ const Minter = (props) => {
           <span>Connect Wallet</span>
         )}
       </button>
-          <button onClick={myNft}>MY NFTs</button>
       <br></br>
       <h1 id="title">Metaverse Ventures NFT Minter</h1>
       <form>
